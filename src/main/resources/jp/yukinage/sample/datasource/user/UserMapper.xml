@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.yukinage.sample.datasource.user.UserMapper">
+
+    <resultMap id="user" type="jp.yukinage.sample.model.user.User">
+        <id property="id.value" column="id" />
+        <result property="name.value" column="name" />
+    </resultMap>
+
+    <select id="listAll" resultMap="user">
+        SELECT
+            id,
+            name
+        FROM
+            "user".users
+        ORDER BY id
+    </select>
+
+    <select id="findById" resultMap="user">
+        SELECT
+            id,
+            name
+        FROM
+            "user".users
+        WHERE id = #{userId.value}
+    </select>
+</mapper>
