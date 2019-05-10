@@ -23,8 +23,9 @@ import jp.yukinage.sample.model.user.UserRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Sql(statements = {
-	"INSERT INTO \"user\".users ( name, kana ) VALUES('山田 ひろ子', 'ヤマダ ヒロコ')",
-	"INSERT INTO \"user\".users ( name, kana ) VALUES('清水 雄太郎', 'シミズ ユウタロウ')",
+	"DELETE FROM \"user\".users",
+	"INSERT INTO \"user\".users ( id, name, kana ) VALUES( 1, '山田 ひろ子', 'ヤマダ ヒロコ')",
+	"INSERT INTO \"user\".users ( id, name, kana ) VALUES( 2, '清水 雄太郎', 'シミズ ユウタロウ')",
 })
 public class UserDataSourceTest {
 

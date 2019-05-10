@@ -2,6 +2,7 @@ spring:
   #DB接続#
   datasource:
     url: jdbc:h2:mem:sample
+    driver-class-name: org.h2.Driver
     username: sa
     password:
   h2:
