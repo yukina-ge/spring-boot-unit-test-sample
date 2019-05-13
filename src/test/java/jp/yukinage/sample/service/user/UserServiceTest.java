@@ -24,8 +24,6 @@ import jp.yukinage.sample.model.user.UserId;
 import jp.yukinage.sample.model.user.UserList;
 import jp.yukinage.sample.model.user.UserName;
 import jp.yukinage.sample.model.user.UserRepository;
-import jp.yukinage.sample.service.user.UserService;
-import jp.yukinage.sample.service.user.UserServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -61,6 +59,7 @@ public class UserServiceTest {
 		// 期待値
 		User expected = new User( userId, new UserName("山田 ひろ子"));
 
+		//　モック化したRepositoryの挙動を設定
 		when(repository.findById(userId)).thenReturn(expected);
 
 		// 実行結果
@@ -80,7 +79,10 @@ public class UserServiceTest {
 	public void findById_存在しないユーザーの取得()
 	{
 		UserId userId = new UserId( 9999L );
+
+		//　モック化したRepositoryの挙動を設定
 		when(repository.findById(userId)).thenReturn(null);
+
 		// 期待値はResourceNotFoundException
         exception.expect(ResourceNotFoundException.class);
 
@@ -92,6 +94,7 @@ public class UserServiceTest {
 	@Test
 	public void listAll_ユーザーリスト取得()
 	{
+		//　モック化したRepositoryの挙動を設定
 		when(repository.listAll()).thenReturn(userList);
 
 		// 実行結果
