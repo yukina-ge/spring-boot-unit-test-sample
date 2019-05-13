@@ -1,4 +1,4 @@
-package jp.yukinage.sample.service;
+package jp.yukinage.sample.service.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
